@@ -1,0 +1,342 @@
+﻿
+@{
+    ViewData["Title"] = "Oluştur";
+}
+
+<head>
+    <style>
+        .scrollable-checks {
+            max-height: 200px; /* Burada istediğiniz yüksekliği belirleyebilirsiniz */
+            overflow-y: auto;
+        }
+
+        .non-selectable {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Standard */
+        }
+    </style>
+</head>
+
+<!-- ***** Featured Start ***** -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="feature-banner header-text">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="~/main_template/assets/images/feature-left.jpg" alt="" style="border-radius: 23px;">
+                </div>
+                <div class="col-lg-8">
+                    <div class="thumb">
+                        <img src="~/main_template/assets/images/feature-right.jpg" alt="" style="border-radius: 23px;">
+                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Featured End ***** -->
+<!-- ***** Details Start ***** -->
+<div class="game-details">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Kart Oluştur</h2>
+        </div>
+        <div class="col-lg-12">
+            <div class="content">
+                <form id="imageRequestForm">
+                    <div class="row">
+                        <input type="hidden" id="allSpecs" name="allSpecs" value="">
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Kahraman Türü</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.KahramanTurleri)
+                                    {
+                                        var index = ViewBag.KahramanTurleri.IndexOf(yetenek);
+                                        var yetenekEng = ViewBag.KahramanTurleriENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="KahramanTurleri">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Dövüş Tipi Türleri</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.DovusTipleri)
+                                    {
+                                            var index = ViewBag.DovusTipleri.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.DovusTipleriENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="DovusTipleri">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Ekipman Tipleri</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.EkipmanTipleri)
+                                    {
+                                            var index = ViewBag.EkipmanTipleri.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.EkipmanTipleriENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="EkipmanTipleri">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Büyü Türleri</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.BuyuTipleri)
+                                    {
+                                            var index = ViewBag.BuyuTipleri.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.BuyuTipleriENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="BuyuTipleri">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Mekan Tipleri</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.MekanTipleri)
+                                    {
+                                            var index = ViewBag.MekanTipleri.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.MekanTipleriENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="MekanTipleri">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Araç ve Binek Tipleri</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.AracVeBinekTipleri)
+                                    {
+                                            var index = ViewBag.AracVeBinekTipleri.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.AracVeBinekTipleriENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="AracVeBinekTipleri">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Çevresel Etkiler</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.CevreselEtkiler)
+                                    {
+                                            var index = ViewBag.CevreselEtkiler.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.CevreselEtkilerENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="CevreselEtkiler">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="left-info">
+                                <h3 class="text-center">Element Kontrol Yetenekleri</h3>
+                                <br>
+                                <div class="scrollable-checks" data-bs-theme="dark">
+                                    @foreach (var yetenek in ViewBag.ElementKontrol)
+                                    {
+                                            var index = ViewBag.ElementKontrol.IndexOf(yetenek);
+                                            var yetenekEng = ViewBag.ElementKontrolENG[index];
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@yetenekEng" id="check_@yetenek" name="ElementKontrol">
+                                            <label class="form-check-label text-white non-selectable" for="check_@yetenek">
+                                                @yetenek
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="startButton" style="background-color:palevioletred" type="submit" class="btn text-white">Oluştur!</button>
+                    </div>
+                </form>
+                
+                <br>
+                <br>
+
+                <h1 class="text-center">Oluşturma Aşamaları</h1>
+                <br>
+                <div class="container mt-3">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <h5>AI Resim: </h5>
+                        </div>
+                        <div class="col">
+                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="27">
+                                <div id="progressBar" class="progress-bar bg-danger" style="width: 0%;">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div id="eventStreamContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Details End ***** -->
+
+<script>
+    document.getElementById('imageRequestForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        
+
+        // Kahraman Türleri
+        var kahramanCheckedValues = [];
+        var kahramanCheckboxes = document.querySelectorAll('input[name="KahramanTurleri"]:checked');
+        kahramanCheckboxes.forEach(function (checkbox) {
+            kahramanCheckedValues.push(checkbox.value);
+        });
+
+        // Dövüş Tipi Türleri
+        var dovusCheckedValues = [];
+        var dovusCheckboxes = document.querySelectorAll('input[name="DovusTipleri"]:checked');
+        dovusCheckboxes.forEach(function (checkbox) {
+            dovusCheckedValues.push(checkbox.value);
+        });
+
+        // Ekipman Tipleri
+        var ekipmanCheckedValues = [];
+        var ekipmanCheckboxes = document.querySelectorAll('input[name="EkipmanTipleri"]:checked');
+        ekipmanCheckboxes.forEach(function (checkbox) {
+            ekipmanCheckedValues.push(checkbox.value);
+        });
+
+        // Büyü Türleri
+        var buyuCheckedValues = [];
+        var buyuCheckboxes = document.querySelectorAll('input[name="BuyuTipleri"]:checked');
+        buyuCheckboxes.forEach(function (checkbox) {
+            buyuCheckedValues.push(checkbox.value);
+        });
+
+        // Mekan Tipleri
+        var mekanCheckedValues = [];
+        var mekanCheckboxes = document.querySelectorAll('input[name="MekanTipleri"]:checked');
+        mekanCheckboxes.forEach(function (checkbox) {
+            mekanCheckedValues.push(checkbox.value);
+        });
+
+        // Araç ve Binek Tipleri
+        var aracCheckedValues = [];
+        var aracCheckboxes = document.querySelectorAll('input[name="AracVeBinekTipleri"]:checked');
+        aracCheckboxes.forEach(function (checkbox) {
+            aracCheckedValues.push(checkbox.value);
+        });
+
+        // Çevresel Etkiler
+        var cevreCheckedValues = [];
+        var cevreCheckboxes = document.querySelectorAll('input[name="CevreselEtkiler"]:checked');
+        cevreCheckboxes.forEach(function (checkbox) {
+            cevreCheckedValues.push(checkbox.value);
+        });
+
+        // Element Kontrol Yetenekleri
+        var elementCheckedValues = [];
+        var elementCheckboxes = document.querySelectorAll('input[name="ElementKontrol"]:checked');
+        elementCheckboxes.forEach(function (checkbox) {
+            elementCheckedValues.push(checkbox.value);
+        });
+
+        // Tüm seçili değerleri birleştir
+        var allSpecs = [].concat(kahramanCheckedValues, dovusCheckedValues, ekipmanCheckedValues, buyuCheckedValues, mekanCheckedValues, aracCheckedValues, cevreCheckedValues, elementCheckedValues).join(',');
+
+        document.getElementById('allSpecs').value = allSpecs;
+        alert("Seçilenler: " + allSpecs);
+
+        const formData = new FormData(this);
+
+        fetch('/Create/MakeImageRequests', {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+        }).then(response => response.text())
+            .then(session_hash => {
+                const eventSource = new EventSource(`/Create/GetImageRequests?session_hash=${session_hash}`);
+
+                eventSource.onmessage = function (event) {
+                    const progressBar = document.getElementById('progressBar');
+                    const data = parseInt(event.data, 10);
+                    const maxValue = 27;
+
+                    if (!isNaN(data) && data >= 0 && data <= maxValue) {
+                        const percentage = (data / maxValue) * 100;
+                        progressBar.style.width = `${percentage}%`;
+                        progressBar.setAttribute('aria-valuenow', percentage);
+                        progressBar.innerText = `${Math.round(percentage)}%`;
+                    }
+                };
+
+                eventSource.onerror = function (event) {
+                    console.error("SSE bağlantı hatası", event);
+                    eventSource.close();
+                };
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+
+    });
+</script>
